@@ -1,0 +1,18 @@
+- hosts:
+  - master
+  - worker
+  roles:
+  - docker
+
+- hosts: master
+  roles:
+  - ssl
+  - etcd
+  - k3s
+  - master
+
+- hosts:
+  - worker
+  roles:
+  - k3s
+  - worker
